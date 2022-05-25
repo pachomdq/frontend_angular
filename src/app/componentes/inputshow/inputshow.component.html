@@ -1,0 +1,3 @@
+<div *ngIf="!editable && !oculto" style="white-space:pre-wrap;"> {{texto}}{{endchar}}</div>
+<p *ngIf="editable && !grande">{{label}}</p><input class="col-8" *ngIf="editable && !grande" (keyup.Enter)="onEnter($event)" (change)="onChange($event)" name="name" [value]="texto" />
+<textarea class="form-control" rows="4" *ngIf="editable && grande" name="name" (change)="onChange($event)">{{texto}}</textarea>

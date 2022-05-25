@@ -1,0 +1,23 @@
+<div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
+      <a href="https://argentinaprograma.inti.gob.ar/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+       <img src="assets/img/argprograma.png" width="70px" class="img-fluid" alt="">
+      </a>
+
+      <ul class="nav col-md-auto mb-2 justify-content-center mb-md-0"></ul>
+    <form *ngIf="!logueado">
+      <input class="input-sm" name="usuario" type="text" placeholder="Usuario">
+      <input class="input-sm" name="contrasena" type="password" placeholder="Contraseña">
+      <button class="btn btn-primary" (click)="cambiarlogueado()">
+        Login
+      </button>
+    </form>
+
+    <form *ngIf="logueado">
+      <button class="btn btn-danger" (click)="cambiarlogueado()">Log Out </button>
+    </form>
+      
+  
+  </header>
+  
+</div>

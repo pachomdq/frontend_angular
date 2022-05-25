@@ -1,0 +1,19 @@
+<section id="portfolio" class="portfolio section-bg">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Portfolio</h2>
+        <p>Trabajos realizados</p>
+        <i class="fas fa-plus svgFA ok" (click)="agregar()"></i>
+      </div>
+      <div class="portfolio-container text-center" data-aos="fade-up" data-aos-delay="200">
+        <div *ngFor="let image of albumlst; let i=index">
+            <img [src]="image.thumb" (click)="open(i)" style="box-shadow: 5px 5px 5px lightblue; margin: 6px">
+            <i class="fas fa-pen svgFA ok" (click)="editar(i)"></i> <i class="fas fa-times svgFA borrar" (click)="borrar(i)"></i>
+            <app-inputshow [(texto)]="albumlst[i].src" [oculto]=true [editable]="edicionlist[i]" [id]="i" [label]="'Imagen URL'"></app-inputshow>
+            <app-inputshow [(texto)]="albumlst[i].thumb" [oculto]=true [editable]="edicionlist[i]" [id]="i" [label]="'Preview URL'"></app-inputshow>
+            <app-inputshow [(texto)]="albumlst[i].caption" [grande]=true [oculto]=true [editable]="edicionlist[i]" [id]="i"></app-inputshow>
+        </div>
+      </div>
+    </div>
+  </section>

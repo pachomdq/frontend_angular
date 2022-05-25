@@ -1,0 +1,41 @@
+<section id="resume" class="resume">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Curriculum</h2>
+        <p></p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <h3 class="resume-title">Resumen </h3>
+          <div class="resume-item pb-0">
+            <h4 style="text-align: right;"><i class="fas fa-pen svgFA ok" (click)="editar()"></i> </h4>
+            <h4><app-inputshow [(texto)]="nombre" [editable]="edicionstatus"></app-inputshow> </h4>
+            <p><em>
+              <app-inputshow [(texto)]="resumen.resumen" [grande]=true [editable]="edicionstatus"></app-inputshow>
+              </em></p>
+            <ul>
+              <li><app-inputshow [(texto)]="resumen.direccion" [editable]="edicionstatus"></app-inputshow>  </li>
+              <li><app-inputshow [(texto)]="resumen.telefono" [editable]="edicionstatus"></app-inputshow></li>
+              <li><app-inputshow [(texto)]="resumen.email" [editable]="edicionstatus"></app-inputshow></li>
+            </ul>
+          </div>
+
+          <h3 class="resume-title" >Educación </h3><i class="fas fa-plus svgFA ok" (click)="agregar(educacion)"></i>
+          <div class="col-lg-6" *ngFor="let ed of educacion; index as i">
+            <app-resume-educacion-card (aborrar)="borrar(educacion, $event)" [id]="i" [nombre]="ed.nombre" [lugar]="ed.lugar" [fecha]="ed.fecha" [detalle]="ed.detalle"></app-resume-educacion-card>
+          </div>
+                   
+        </div>
+        <div class="col-lg-6">
+          <h3 class="resume-title">Experiencia Profesional </h3><i class="fas fa-plus svgFA ok"(click)="agregar(experiencia)"></i>
+          <div *ngFor="let ex of experiencia; index as i">
+            <app-resume-experiencia-card (aborrar)="borrar(experiencia, $event)" [id]=i [nombre]="ex.nombre" [fecha]="ex.fecha" [lugar]="ex.lugar" [detalle]="ex.detalle"></app-resume-experiencia-card>
+          </div>
+        </div>
+
+    </div>
+
+    </div>
+  </section>

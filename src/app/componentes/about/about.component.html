@@ -1,0 +1,62 @@
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Un poco de mi </h2><i class="fas fa-pen svgFA ok" (click)="edicion(0)"></i>
+        <!--<p>{{informacion.introduccion}}</p>-->
+        <p><app-inputshow [grande]=true [(texto)]="informacion.introduccion" [editable]="edicionlist[0]"></app-inputshow>
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4"><i class="fas fa-pen svgFA ok" (click)="edicion(1)"></i>
+          <app-inputshow [(texto)]=informacion.imagenURL [editable]="edicionlist[1]" [oculto]=true></app-inputshow>
+          
+          <img [src]="informacion.imagenURL" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-8 pt-4 pt-lg-0 content"><i class="fas fa-pen svgFA ok" (click)="edicion(2)"></i>
+          <!--<h3>{{informacion.cargo}} </h3>-->
+          <h3><app-inputshow  [(texto)]="informacion.cargo" [editable]="edicionlist[2]"></app-inputshow></h3>
+          <i class="fas fa-pen svgFA ok" (click)="edicion(3)"></i>
+          <p class="fst-italic">
+            <app-inputshow [grande]=true [(texto)]="informacion.detallecargo" [editable]="edicionlist[3]"></app-inputshow>
+          </p>
+          <div class="row">
+            <div class="col-lg-6">
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <strong>Fecha de nacimiento:</strong> <span>
+                  <app-inputshow [(texto)]="informacion.fechanacimiento" [editable]="edicionlist[4]"></app-inputshow>
+                </span><i class="fas fa-pen svgFA ok" (click)="edicion(4)"></i></li>
+            
+                <li><i class="bi bi-chevron-right"></i> <strong>Telefono:</strong> <span>
+                  <app-inputshow [(texto)]="informacion.telefono" [editable]="edicionlist[5]"></app-inputshow>
+                </span><i class="fas fa-pen svgFA ok" (click)="edicion(5)"></i></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Ciudad:</strong> <span>
+                  <app-inputshow [(texto)]="informacion.ciudad" [editable]="edicionlist[6]"></app-inputshow>
+                </span><i class="fas fa-pen svgFA ok" (click)="edicion(6)"></i></li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <strong>Edad:</strong> <span>
+                  <app-inputshow [(texto)]="informacion.edad" [editable]="edicionlist[7]"></app-inputshow>
+                </span><i class="fas fa-pen svgFA ok" (click)="edicion(7)"></i></li>
+               
+                <li><i class="bi bi-chevron-right"></i> <strong>E-Mail:</strong> <span>
+                  <app-inputshow [(texto)]="informacion.email" [editable]="edicionlist[8]"></app-inputshow>
+                </span><i class="fas fa-pen svgFA ok" (click)="edicion(8)"></i></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>
+                  <app-inputshow [(texto)]="informacion.freelance" [editable]="edicionlist[9]"></app-inputshow>
+                </span><i class="fas fa-pen svgFA ok" (click)="edicion(9)"></i></li>
+              </ul>
+            </div>
+          </div>
+          <i class="fas fa-pen svgFA ok" (click)="edicion(10)"></i>
+          <p>
+            <app-inputshow [(texto)]="informacion.notas" [editable]="edicionlist[10]" [grande]=true></app-inputshow>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>

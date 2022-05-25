@@ -1,0 +1,23 @@
+<section id="hero" class="d-flex flex-column justify-content-center">
+    <div class="container" data-aos="zoom-in" data-aos-delay="100">
+      <i class="fas fa-pen svgFA ok" (click)="edicion(0)"></i>
+      <!--<h1>{{nombre}} </h1>-->
+      <h1><app-inputshow [texto]="nombre" [editable]="edicionlist[0]"></app-inputshow></h1>
+   
+      <p><ngx-typed-js 
+        [strings]="options.strings" 
+        [typeSpeed]="options.typeSpeed" 
+        [backSpeed]="options.backSpeed"
+        [showCursor]="options.showCursor"
+        [cursorChar]="options.cursorChar"
+        [loop]="options.loop">
+        <span class="typing"></span>
+      </ngx-typed-js> </p>
+      <div class="social-links">
+        <a href="https://www.twitter.com/pachomdq" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="https://www.facebook.com/pachomdp" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/pachomdq" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/jose-maria-gomez-08a524119" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </section>

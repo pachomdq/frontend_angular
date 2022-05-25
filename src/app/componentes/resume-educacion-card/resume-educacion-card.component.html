@@ -1,0 +1,8 @@
+<div class="resume-item">
+    <h4 style="text-align: right;">
+      <i class="fas fa-pen svgFA ok" (click)="edicion(0)"></i> <i class="fas fa-times svgFA borrar" (click)="borrar(id)"></i></h4>
+    <h4><app-inputshow [(texto)]="nombre" [editable]="edicionlist[0]"></app-inputshow> </h4>
+    <h5><app-inputshow [(texto)]="fecha" [editable]="edicionlist[0]"></app-inputshow> </h5>
+    <p><em><app-inputshow [(texto)]="lugar" [editable]="edicionlist[0]"></app-inputshow></em></p>
+    <p><app-inputshow [(texto)]="detalle" [grande]=true [editable]="edicionlist[0]"></app-inputshow></p>
+  </div>

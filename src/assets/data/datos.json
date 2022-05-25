@@ -1,0 +1,107 @@
+{
+	"about":
+		{
+		"imagenURL":"assets/img/profile-img.jpg",
+		"nombre":"José Gómez",
+        "caracteristicas":["Desarrollador", "Programador", "Artista Grafico"],
+		"introduccion":"Mi nombre es José Gómez y estoy en el campo del desarrollo y la programación desde hace más de 20 años. Siempre fui un apasionado por la tecnología cualquiera sea su rama. Curioso y autodidacta en muchos de los temas emergentes pero con instrucción formal respaldando cada nuevo conocimiento. Mi principal característica es saber resolver problemas buscando optimizar y mejorar cada solución obtenida. Considero el aspecto estético una parte esencial del desarrollo para producir productos de calidad real y no simplemente funcionales.",
+		"cargo": "Desarrollador WEB Full Stack",
+		"detallecargo":"Certificado por INTI Argentina. Utilizacion de diversas tecnologias para la creacion de aplicaciones SPA atractivas, funcionales y reactivas.",
+		"fechanacimiento":"19 de julio de 1980",
+		"telefono":"+54 223 512 9449",
+		"ciudad":"Mar del Plata",
+		"edad":"41",
+		"email":"pachomdq@gmail.com",
+		"freelance":"Disponible",
+		"notas":"Utilizo Angular, Java, Javascript, Python, PHP, Flask, React, SQL entre otros"
+		},
+	"facts":[
+		{
+		"imagenURL":"assets/img/inti.png",
+		"texto":"INTI Argentina Programa #YoProgramo. Desarrollador WEB Full Stack jr.",
+		"horas":480
+		},
+		{
+		"imagenURL":"assets/img/harvard.png",
+		"texto":"Harvard CS50AI Professional Program. Introduccion a ciencias de la computacion. Tecnicas y usos de inteligencia artificial y agentes inteligentes.",
+		"horas":226
+		},
+		{
+		"imagenURL":"assets/img/rit.png",
+		"texto":"Rochester Institute of Technology, NY. Computer forensics. Analisis forense de sistemas UNIX/LINUX y Windows. Protocolos y tecnicas actualizadas.",
+		"horas":96
+		},
+		{
+		"imagenURL":"assets/img/unicen.png",
+		"texto":"UNCPBA Ingenieria de sistemas. Cursando 2do año de la carrera de ingenieria de sistemas/analista programador universitario.",
+		"horas":1512
+		}
+	],
+	"skills":[
+		{
+		"nombre":"skill1",
+		"valor":"85"
+		},
+		{
+		"nombre":"skill2",
+		"valor":"90"
+		},
+		{
+		"nombre":"skill3",
+		"valor":"80"
+		},
+		{
+		"nombre":"skill4",
+		"valor":"70"
+		},
+		{
+		"nombre":"skill5",
+		"valor":"60"
+		},
+		{
+		"nombre":"skill6",
+		"valor":"50"
+		}
+	],
+	"resumen":
+		{
+		"resumen":"Deseñador WEB y programador de aplicaciones freelance. Empleado del Ministerio de Seguridad de la provincia de Buenos Aires por mas de 13 años.",
+		"direccion":"Los Delfines 757, Mar del Plata, BA, Argentina",
+		"telefono":"+54 (223) 512 9449",
+		"email":"pachomdq@gmail.com"
+		},
+	"educacion":[
+		{
+		"nombre":"Ingenieria de Sistemas",
+		"fecha":"2020 - Actualidad",
+		"lugar":"Universidad Nacional del Centro de la Provincia de Buenos Aires.",
+		"detalle":"Cursando la carrera de ingenieria de sistemas."
+		},
+		{
+		"nombre":"Full Stack Web Developer",
+		"fecha":"2021 - 2022",
+		"lugar":"Argentina Programa #YoProgramo",
+		"detalle":"Curso de desarrollador WEB Full Stack jr. Capacitado en GIT, HTML, CSS, BootStrap, Typescript, Api REST, Java, JSP, Angular, SQL, Spring Boot"
+		},
+		{
+		"nombre":"Professional Certificate in Artifical Intelligence",
+		"fecha":"2019 - 2020",
+		"lugar":"Harvardx EDX",
+		"detalle":"Introduccion a las ciencias de la computacion e inteligencia artificial dictado por profesores de la universidad Harvard, Cambridge, Massachusetts, USA."
+		}
+		],
+	"experiencia": [
+		{
+		"nombre":"Freelance",
+		"fecha":"2002 - Actualidad",
+		"lugar":"Mar del Plata, BA, Argentina",
+		"detalle":"Programador freelance de aplicaciones web y de escritorio"
+		},
+		{
+			"nombre":"Tecnico superior en Seguridad Publica con orientacion departamental",
+			"fecha":"2009 - Actualidad",
+			"lugar":"Ministerio de Seguridad PBA, Escuadron de Caballeria Mar del Plata",
+			"detalle":"Subteniente\nPersonal policial montado de la PPBA.\nManejo de personal a cargo\nManejo de situaciones extremas y resolución de conflictos"
+		}
+	]
+}

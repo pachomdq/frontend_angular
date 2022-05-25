@@ -1,0 +1,18 @@
+<section id="skills" class="skills section-bg">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Habilidades</h2>
+        <p>Capacidades y conocimientos adquiridos a traves de los años  <i class="fas fa-plus svgFA ok" (click)="agregar()"></i></p>
+      </div>
+
+      <div class="row skills-content">
+
+        <div class="col-lg-6" *ngFor="let skl of informacion; index as i">
+          <app-skill (aborrar)="borrar($event)" [valor]="skl.valor" [nombre]="skl.nombre" [id]="i"></app-skill> 
+        </div>
+
+      </div>
+
+    </div>
+  </section>
