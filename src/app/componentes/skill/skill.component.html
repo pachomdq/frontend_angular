@@ -1,10 +1,12 @@
 <i class="fas fa-pen svgFA ok" (click)="edicion(0)"></i> <i class="fas fa-times svgFA borrar" (click)="borrar(id)"></i>
+<app-inputshow [(texto)]="nombre" [editable]="edicionlist[0]" [oculto]=true></app-inputshow>
+<app-inputshow [(texto)]="valor" [editable]="edicionlist[0]" [oculto]=true></app-inputshow>
+    
 <div class="progress">
-    id:{{id}}
     <span class="skill">
-      <app-inputshow [(texto)]="nombre" [editable]="edicionlist[0]"></app-inputshow>
+      {{nombre}}
       <i class="val">
-        <app-inputshow [(texto)]="valor" [editable]="edicionlist[0]" [endchar]="'%'"></app-inputshow>
+        {{valor}}%
       </i></span>
     <div class="progress-bar-wrap">
       <div class="progress-bar" role="progressbar" [style.width]="valor.toString() + '%'"></div>
