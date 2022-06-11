@@ -10,7 +10,7 @@ export class InputshowComponent implements OnInit {
 
   @Input()
   texto: string = "";
-  
+  @Input() name: string="";
   @Input() endchar: string ="";
   @Input() label: string ="";
   @Input()

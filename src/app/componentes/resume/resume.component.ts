@@ -17,11 +17,16 @@ export class ResumeComponent implements OnInit {
   constructor(private datosPortfolio:PortfolioService) { }
 
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos().subscribe(data => {
-      this.resumen = data.resumen;
-      this.educacion = data.educacion;
-      this.experiencia = data.experiencia;
-      this.nombre = data.about.nombre;
+    this.datosPortfolio.obtenerExperiencia().subscribe(data => {
+      this.experiencia = data;
+    });
+    this.datosPortfolio.obtenerAbout().subscribe(data => {
+      this.nombre = data[0].nombre;
+      this.resumen = {"resumen":data[0].resumen, "direccion":data[0].direccion, 
+      "telefono":data[0].telefono, "email":data[0].email};
+    });
+    this.datosPortfolio.obtenerEducacion().subscribe(data =>{
+      this.educacion = data;
     });
   }
   agregar(donde:any): void{ 

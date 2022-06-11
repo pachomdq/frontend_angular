@@ -5,19 +5,19 @@
       </a>
 
       <ul class="nav col-md-auto mb-2 justify-content-center mb-md-0"></ul>
-    <form *ngIf="!logueado">
-      <input class="input-sm" name="usuario" type="text" placeholder="Usuario">
-      <input class="input-sm" name="contrasena" type="password" placeholder="Contraseña">
-      <button class="btn btn-primary" (click)="cambiarlogueado()">
-        Login
-      </button>
+      
+    <form [formGroup]="form" *ngIf="visible && !logueado" (ngSubmit)="onEnviar()">
+      <label class="text-danger" *ngIf="Usuario?.errors && Usuario?.touched || Password?.errors && Password?.touched">Ingrese usuario y contraseña</label>
+      <input [ngClass]="{'is-invalid':Usuario?.errors && Usuario?.touched, 'is-valid':!Usuario?.errors && Usuario?.touched}" class="form-control" formControlName="usuario" type="text" placeholder="Usuario">
+      <input [ngClass]="{'is-invalid':Password?.errors && Password?.touched, 'is-valid':!Password?.errors && Password?.touched}"class="form-control" formControlName="password" type="password" placeholder="Contraseña">
+      <button class="btn btn-primary" type="submit">Login</button> <button class="btn btn-secondary" (click)="verLogin()">Cancel</button>
     </form>
 
-    <form *ngIf="logueado">
-      <button class="btn btn-danger" (click)="cambiarlogueado()">Log Out </button>
+    <form *ngIf="visible && logueado">
+      <label class="small">Editor: {{editor}}</label><button class="btn btn-danger" (click)="onLogout()">Logout</button>
     </form>
+    <button *ngIf="!visible" class="btn-primary btn-sm" (click)="verLogin()">Edit</button>
       
-  
   </header>
   
 </div>

@@ -40,7 +40,7 @@ import { InputshowComponent } from './componentes/inputshow/inputshow.component'
     TarjetafactsComponent,
     ResumeEducacionCardComponent,
     ResumeExperienciaCardComponent,
-    InputshowComponent
+    InputshowComponent,
   ],
   imports: [
     BrowserModule,

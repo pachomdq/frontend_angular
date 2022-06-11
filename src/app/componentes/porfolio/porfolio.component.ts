@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Lightbox } from 'ngx-lightbox'; 
+import { AutenticarService } from 'src/app/servicios/autenticar.service';
+import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-porfolio',
@@ -9,9 +11,10 @@ import { Lightbox } from 'ngx-lightbox';
 export class PorfolioComponent implements OnInit {
   albumlst: Array<any> = [];
   edicionlist: Array<boolean> = [];
+  portfolio:any;
   
   
-  constructor(private _lightbox: Lightbox) { 
+  constructor(private _lightbox: Lightbox, private datosPortfolio:PortfolioService, private aut:AutenticarService) { 
      const album1 = {
        "src": "/assets/img/portfolio/josegomez1.jpg",
        "caption": "Portfolio creado para Argentina Programa #YoProgramo",
@@ -36,6 +39,9 @@ export class PorfolioComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.datosPortfolio.obtenerPortfolio().subscribe(datos =>{
+      this.portfolio = datos;
+    });
   }
 
   agregar(): void{
@@ -55,6 +61,11 @@ export class PorfolioComponent implements OnInit {
 
   editar(indice:number): void{
     this.edicionlist[indice] = !this.edicionlist[indice];
+  }
+
+  isLoggedIn()
+  {
+    return this.aut.isLogin()
   }
 
 }

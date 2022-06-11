@@ -15,13 +15,14 @@ export class SkillsComponent implements OnInit {
   constructor(private datosPortfolio:PortfolioService) { }
 
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos().subscribe(data => {
-      this.informacion = data.skills;
+    this.datosPortfolio.obtenerSkills().subscribe(data => {
+      this.informacion = data;
     });
   }
 
   agregar(): void{ 
     this.informacion.push(this.nuevo);
+    this.datosPortfolio.agregarSkill(this.nuevo);
   }
 
   borrar(indice:number): void{

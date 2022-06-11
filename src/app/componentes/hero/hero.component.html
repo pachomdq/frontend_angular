@@ -1,7 +1,6 @@
 <section id="hero" class="d-flex flex-column justify-content-center">
     <div class="container" data-aos="zoom-in" data-aos-delay="100">
-      <i class="fas fa-pen svgFA ok" (click)="edicion(0)"></i>
-      <!--<h1>{{nombre}} </h1>-->
+      <i *ngIf="isLoggedIn()" class="fas fa-pen svgFA ok" (click)="edicion(0)"></i>
       <h1><app-inputshow [texto]="nombre" [editable]="edicionlist[0]"></app-inputshow></h1>
    
       <p><ngx-typed-js 

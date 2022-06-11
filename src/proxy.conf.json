@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target":"https://agile-sea-39509.herokuapp.com",
+        "secure":false,
+        "logLevel":"debug"
+    }
+}
