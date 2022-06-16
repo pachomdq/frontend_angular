@@ -1,6 +1,5 @@
 import AOS from 'aos';
-import { Component, Input, OnInit } from '@angular/core';
-import { AutenticarService } from './servicios/autenticar.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +8,10 @@ import { AutenticarService } from './servicios/autenticar.service';
 })
 export class AppComponent implements OnInit{
   title = 'portfolio';
-  constructor(public autService:AutenticarService){
+  constructor(){
   }
 
   ngOnInit() {
     AOS.init();
-  }
-
-  isLoggedIn()
-  {
-    return this.autService.isLogin()
-  }
-  
+  }  
 }

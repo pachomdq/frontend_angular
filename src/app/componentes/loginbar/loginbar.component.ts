@@ -13,7 +13,6 @@ export class LoginbarComponent implements OnInit {
   errorpassword = "Ingrese una contraseña";
   visible = false;
   logueado = false;
-  editor = "";
   
   constructor(private formBuilder:FormBuilder, private autService:AutenticarService) { 
    
@@ -29,7 +28,6 @@ export class LoginbarComponent implements OnInit {
     if (localStorage.getItem('token') != null)
     {
       this.logueado = true;
-      this.editor = localStorage.getItem('usuario') || ""
     }
   }
 
@@ -53,7 +51,7 @@ export class LoginbarComponent implements OnInit {
     var psw = this.form.get('password');
     if (usr && psw) {
       this.autService.IniciarSesion(usr.value, psw.value).subscribe(
-        data => {
+        () => {
           this.logueado = this.autService.UsuarioAutenticado
           if (!this.logueado){
             window.alert("Error en credenciales")

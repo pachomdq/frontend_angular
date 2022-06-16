@@ -8,11 +8,14 @@
       <div class="row">
         <div class="col-lg-3 col-md-6 mt-5 mt-md-0" *ngFor="let card of informacion; index as i">
           <app-tarjetafacts 
-            [limite]=card.horas 
-            texto={{card.texto}}
-            imagenURL={{card.imagenURL}}
-            id={{i}}
+            i = {{i}}
+            [limite]="card.horas" 
+            [texto]="card.texto"
+            [imagenURL]="card.imagenURL"
+            id={{card.id}}
+            (aguardar)="guardar($event)"
             (aborrar)="borrar($event)"
         ></app-tarjetafacts>
         </div>
       </div>
+      

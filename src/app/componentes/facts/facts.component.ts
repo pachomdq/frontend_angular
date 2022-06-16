@@ -21,9 +21,19 @@ export class FactsComponent implements OnInit {
   agregar(): void{
     
     this.informacion.push(this.nuevo);
+    this.datosPortfolio.agregarFacts(this.nuevo).subscribe()
   }
-  borrar(indice:string): void{
-    this.informacion.splice(parseInt(indice),1);  
+
+  borrar(i:string): void{
+    this.datosPortfolio.eliminarFacts(this.informacion[parseInt(i)]).subscribe() 
+    this.informacion.splice(parseInt(i),1);
+  }
+
+  guardar(card:string): void{
+    window.alert(card)
+    this.datosPortfolio.modificarFacts(card).subscribe(() => {
+      window.alert("Datos Guardados")
+    })
   }
 
   isLoggedIn()

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild,ElementRef,HostListener, Input, Output, EventEmitter } from '@angular/core';
-
+import { AutenticarService } from 'src/app/servicios/autenticar.service';
 @Component({
   selector: 'app-tarjetafacts',
   templateUrl: './tarjetafacts.component.html',
@@ -8,12 +8,15 @@ import { Component, OnInit, ViewChild,ElementRef,HostListener, Input, Output, Ev
 export class TarjetafactsComponent implements OnInit {
   edicionlist:Array<boolean> = [false];
   @Output() aborrar = new EventEmitter<string>();
+  @Output() aguardar = new EventEmitter<string>();
 
-  @Input() id: string="";
+  @Input() i!:string;
+  @Input() id!: string;
   @Input() limite!: number;
   @Input() texto!:string;
   @Input() imagenURL!:string;
   @Input() horas: string = "";
+
 
   coun:number=0;
   heightEl=0;
@@ -22,7 +25,7 @@ export class TarjetafactsComponent implements OnInit {
     useGrouping: false
   }
 
-  constructor() {
+  constructor(private aut:AutenticarService) {
     
    }
  
@@ -34,11 +37,35 @@ export class TarjetafactsComponent implements OnInit {
     this.coun= parseInt(this.horas);
     this.limite = parseInt(this.horas);
   }
-  borrar(indice:string):void
+
+  isLoggedIn()
   {
-    this.aborrar.emit(indice);
+    let login = this.aut.isLogin()
+    // elimina las cajas de edicion en caso de logout
+    if (!login)
+    {
+      this.edicionlist.fill(false)
+    }
+    return login
   }
 
+  borrar(i:string):void
+  {
+    this.aborrar.emit(i);
+  }
+
+  guardar():void
+  {
+    this.coun= parseInt(this.horas);
+    this.limite = parseInt(this.horas);
+    this.edicionlist.fill(false)
+    let card = {"id":this.id,
+            "texto":this.texto,
+            "horas":this.horas,
+            "imagenURL":this.imagenURL
+    }
+    this.aguardar.emit(JSON.stringify(card));
+  }
   
   @HostListener('window:scroll', ['$event'])   
   onWindowScroll($event: any) {

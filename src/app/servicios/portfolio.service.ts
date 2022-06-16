@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators'
 })
 export class PortfolioService {
   urlServer: string ="https://agile-sea-39509.herokuapp.com/";
+  httpOptions = {headers: new HttpHeaders({'Content-Type':'application/json'})}
 
   constructor(private http:HttpClient) { }
   
@@ -45,8 +46,25 @@ export class PortfolioService {
   }
 
   modificarAbout(datos:any):Observable<any>{
-    const httpOptions = {headers: new HttpHeaders({'Content-Type':'application/json'})}
     return this.http
-    .put(this.urlServer+ "about/"+ datos.id + "/" + localStorage.getItem('usuario')+"/"+localStorage.getItem('token'),JSON.stringify(datos),httpOptions)
+    .put(this.urlServer + "about/"+ datos.id + "/" + localStorage.getItem('usuario') + "/" + localStorage.getItem('token'),JSON.stringify(datos),this.httpOptions)
   }
+
+  agregarFacts(datos:any):Observable<any>{ 
+    return this.http
+    .post(this.urlServer + "facts/" + localStorage.getItem('usuario') + "/" + localStorage.getItem('token'), JSON.stringify(datos),this.httpOptions)
+  }
+
+  modificarFacts(data:string):Observable<any>{
+    let datos = JSON.parse(data)
+    return this.http
+    .put(this.urlServer + "facts/" + datos.id + "/" + localStorage.getItem('usuario') + "/" + localStorage.getItem('token'), JSON.stringify(datos), this.httpOptions)
+  }
+
+  eliminarFacts(data:any):Observable<any>{
+    return this.http.delete(this.urlServer + "facts/"+ data.id + "/" + localStorage.getItem('usuario') + "/" + localStorage.getItem('token'),this.httpOptions)
+  }
+
+  
+
 }

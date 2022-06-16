@@ -14,7 +14,7 @@
     </form>
 
     <form *ngIf="visible && logueado">
-      <label class="small">Editor: {{editor}}</label><button class="btn btn-danger" (click)="onLogout()">Logout</button>
+    <button class="btn btn-danger" (click)="onLogout()">Logout</button>
     </form>
     <button *ngIf="!visible" class="btn-primary btn-sm" (click)="verLogin()">Edit</button>
       
