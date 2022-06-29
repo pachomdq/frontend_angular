@@ -10,14 +10,16 @@ import Typed from 'typed.js'
 })
 export class HeroComponent implements OnInit {
   edicionlist:Array<boolean> = [false];
+  botonDeshabilitado = false
+  textoBoton = "Guardar cambios"
 
-  nombre: any;
+  about: any;
   constructor(private datosPortfolio:PortfolioService, private aut:AutenticarService) { }
   options :any;
   ngOnInit(): void {
    
     this.datosPortfolio.obtenerAbout().subscribe(data => {
-      this.nombre = data[0].nombre;
+      this.about = data[0]
     });
     this.options = {
       strings: ["Desarrollador", "Programador", "Artista Grafico"],
@@ -35,6 +37,16 @@ export class HeroComponent implements OnInit {
   isLoggedIn()
   {
     return this.aut.isLogin()
+  }
+
+  guardar():void {
+    this.edicionlist.fill(false) //elimina cajas de seleccion una vez guardado
+    this.botonDeshabilitado = true
+    this.textoBoton="Guardando..."
+    this.datosPortfolio.modificarAbout(this.about).subscribe(() =>{
+        this.textoBoton="Guardado"
+        this.botonDeshabilitado = false
+    });
   }
 
 }

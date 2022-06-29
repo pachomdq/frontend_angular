@@ -9,7 +9,8 @@ import { AutenticarService } from 'src/app/servicios/autenticar.service';
 })
 export class AboutComponent implements OnInit {
   edicionlist:Array<boolean> = [];
-  
+  textoBoton = "Guardar cambios"
+  botonDeshabilitado = false
   informacion: any;
   about: any;
   constructor(private datosPortfolio:PortfolioService, private aut:AutenticarService) { }
@@ -26,14 +27,18 @@ export class AboutComponent implements OnInit {
     
   }
   edicion(indice:number):void {
+    this.textoBoton="Guardar cambios"
     this.edicionlist.fill(false) // permite elegir solo una a la vez
     this.edicionlist[indice] = !this.edicionlist[indice];
   }
 
   guardar():void {
     this.edicionlist.fill(false) //elimina cajas de seleccion una vez guardado
+    this.botonDeshabilitado = true
+    this.textoBoton="Guardando..."
     this.datosPortfolio.modificarAbout(this.about).subscribe(() =>{
-        window.alert("Guardado")
+        this.textoBoton="Guardado"
+        this.botonDeshabilitado = false
     });
   }
 

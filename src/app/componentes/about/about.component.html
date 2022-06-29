@@ -59,4 +59,4 @@
 
     </div>
   </section>
-  <button class="btn btn-outline-primary w-100" *ngIf="isLoggedIn()" (click)="guardar()">Guardar cambios</button>
+  <button class="btn btn-outline-primary w-100" *ngIf="isLoggedIn()" (click)="guardar()" [disabled]="botonDeshabilitado">{{textoBoton}}</button>
