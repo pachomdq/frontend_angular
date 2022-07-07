@@ -9,15 +9,19 @@ export class TarjetafactsComponent implements OnInit {
   edicionlist:Array<boolean> = [false];
   @Output() aborrar = new EventEmitter<string>();
   @Output() aguardar = new EventEmitter<string>();
+  @Output() cambiaBoton = new EventEmitter<string>();
 
   @Input() i!:string;
+
   @Input() id!: string;
   @Input() limite!: number;
   @Input() texto!:string;
   @Input() imagenURL!:string;
   @Input() horas: string = "";
 
-
+  indice!:number;
+  textoBoton = "Guardar cambios"
+  botonDeshabilitado = false
   coun:number=0;
   heightEl=0;
 
@@ -31,8 +35,10 @@ export class TarjetafactsComponent implements OnInit {
  
   ngOnInit(): void {
     this.horas = this.limite.toString();
+    this.indice=parseInt(this.i)
   }
   edicion(indice:number):void {
+    this.textoBoton="Guardar cambios"
     this.edicionlist[indice] = !this.edicionlist[indice];
     this.coun= parseInt(this.horas);
     this.limite = parseInt(this.horas);
@@ -64,7 +70,9 @@ export class TarjetafactsComponent implements OnInit {
             "horas":this.horas,
             "imagenURL":this.imagenURL
     }
-    this.aguardar.emit(JSON.stringify(card));
+
+    this.aguardar.emit(JSON.stringify(card))
+    this.textoBoton="Guardado"
   }
   
   @HostListener('window:scroll', ['$event'])   

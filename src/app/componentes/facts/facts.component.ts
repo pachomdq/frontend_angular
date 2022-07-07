@@ -12,6 +12,7 @@ export class FactsComponent implements OnInit {
   informacion: any;
   nuevo:any  = {"imagenURL":"assets/img/nuevo.png","texto":"Datos o informacion a mostrar","horas":999};
   constructor(private datosPortfolio:PortfolioService, private aut:AutenticarService) { }
+  
 
   ngOnInit(): void {
     this.datosPortfolio.obtenerFacts().subscribe(data => {
@@ -25,14 +26,14 @@ export class FactsComponent implements OnInit {
   }
 
   borrar(i:string): void{
-    this.datosPortfolio.eliminarFacts(this.informacion[parseInt(i)]).subscribe() 
-    this.informacion.splice(parseInt(i),1);
+    if (window.confirm("Este elemento se eliminara permanentemente. ¿Desea Continuar?")){
+      this.datosPortfolio.eliminarFacts(this.informacion[parseInt(i)]).subscribe() 
+      this.informacion.splice(parseInt(i),1);
+    }
   }
 
-  guardar(card:string): void{
-    window.alert(card)
-    this.datosPortfolio.modificarFacts(card).subscribe(() => {
-      window.alert("Datos Guardados")
+  guardar(card:string): void{   
+    this.datosPortfolio.modificarFacts(card).subscribe(() => {  
     })
   }
 

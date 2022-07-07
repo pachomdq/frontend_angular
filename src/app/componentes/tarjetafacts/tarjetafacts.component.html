@@ -1,16 +1,16 @@
 
 <div class="section-title">
-    <p text-align="center"><i *ngIf="isLoggedIn()" class="fas fa-pen svgFA ok" (click)="edicion(20)"></i> 
+    <p text-align="center"><i *ngIf="isLoggedIn()" class="fas fa-pen svgFA ok" (click)="edicion(indice)"></i> 
         <i *ngIf="isLoggedIn()" class="fas fa-times svgFA borrar " (click)="borrar(i)"></i></p>
     <div class="count-box">
         <img [src]="imagenURL" class="img-fluid" alt="">
-        <app-inputshow [(texto)]="imagenURL" [editable]="edicionlist[20]" [oculto]=true></app-inputshow>
-        <app-inputshow [(texto)]="horas" [editable]="edicionlist[20]" [oculto]=true ></app-inputshow>
+        <app-inputshow [(texto)]="imagenURL" [editable]="edicionlist[indice]" [oculto]=true></app-inputshow>
+        <app-inputshow [(texto)]="horas" [editable]="edicionlist[indice]" [oculto]=true ></app-inputshow>
 
         <span [countUp]="coun" [options]="opciones" #counte></span>
         <p>
-            <app-inputshow [(texto)]="texto" [editable]="edicionlist[20]" [grande]=true></app-inputshow>
+            <app-inputshow [(texto)]="texto" [editable]="edicionlist[indice]" [grande]=true></app-inputshow>
         </p>
     </div>
   </div>
-  <button class="btn btn-outline-primary w-100" *ngIf="isLoggedIn()" (click)="guardar()">Guardar cambios</button>
+  <button class="btn btn-outline-primary w-100" *ngIf="isLoggedIn()" (click)="guardar()" [disabled]="botonDeshabilitado">{{textoBoton}}</button>
