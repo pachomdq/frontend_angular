@@ -9,7 +9,7 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 export class SkillsComponent implements OnInit {
   
   informacion: any;
-  nuevo: any = {"nombre": "Habilidad", "valor": 100};
+  nuevo: any = {"id":0, "nombre": "Habilidad", "valor": 100};
 
 
   constructor(private datosPortfolio:PortfolioService) { }
@@ -22,11 +22,14 @@ export class SkillsComponent implements OnInit {
 
   agregar(): void{ 
     this.informacion.push(this.nuevo);
-    this.datosPortfolio.agregarSkill(this.nuevo);
+    this.datosPortfolio.agregarSkill(this.nuevo).subscribe();
   }
 
   borrar(indice:number): void{
-    this.informacion.splice(indice,1);  
+    if (window.confirm("Este elemento se eliminara permanentemente. ¿Desea Continuar?")){
+      this.datosPortfolio.eliminarSkills(this.informacion[indice]).subscribe()
+      this.informacion.splice(indice,1);   
+    }
   }
 
 }

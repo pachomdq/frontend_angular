@@ -38,7 +38,7 @@ export class PortfolioService {
   }
 
   agregarSkill(datos:any):Observable<any>{
-    return this.http.post(this.urlServer + "skills",datos);
+    return this.http.post(this.urlServer + "skills/" + localStorage.getItem("usuario") + "/" + localStorage.getItem("token") ,JSON.stringify(datos),this.httpOptions);
   }
 
   obtenerPortfolio():Observable<any>{
@@ -63,6 +63,10 @@ export class PortfolioService {
 
   eliminarFacts(data:any):Observable<any>{
     return this.http.delete(this.urlServer + "facts/"+ data.id + "/" + localStorage.getItem('usuario') + "/" + localStorage.getItem('token'),this.httpOptions)
+  }
+
+  eliminarSkills(data:any):Observable<any>{
+    return this.http.delete(this.urlServer + "skills/" + data.id + "/" + localStorage.getItem('usuario') + "/" + localStorage.getItem('token'), this.httpOptions)
   }
 
   

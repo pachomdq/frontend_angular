@@ -10,6 +10,7 @@
 
         <div class="col-lg-6" *ngFor="let skl of informacion; index as i">
           <app-skill (aborrar)="borrar($event)" [valor]="skl.valor" [nombre]="skl.nombre" [id]="i"></app-skill> 
+          <button class="btn btn-outline-primary btn-sm">Guardar Cambios</button>
         </div>
 
       </div>
